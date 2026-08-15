@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Special Day 💖</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Partikel Estetik Pink -->
+    <div class="heart-container" id="heartContainer"></div>
+
+    <!-- Ambient Glow Serba Pink -->
+    <div class="glow glow-top"></div>
+    <div class="glow glow-bottom"></div>
+
+    <!-- ================= HALAMAN 1: COUNTDOWN ================= -->
+    <div class="main-card" id="pageCountdown">
+        <p class="sub-title">✦ MENGHITUNG HARI ✦</p>
+        
+        <h1 class="main-title">
+            Her Special Day <br>
+            <span>is Coming</span>
+        </h1>
+        
+        <p class="tagline">Sesuatu yang indah sedang menunggumu 💕</p>
+
+        <!-- Countdown Box -->
+        <div class="countdown-container">
+            <div class="time-box">
+                <span id="days">00</span>
+                <p>HARI</p>
+            </div>
+            <div class="time-box">
+                <span id="hours">00</span>
+                <p>JAM</p>
+            </div>
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <p>MENIT</p>
+            </div>
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <p>DETIK</p>
+            </div>
+        </div>
+
+        <p class="note"><i>Beberapa detik lagi... 💕</i></p>
+
+        <!-- Tombol Terkunci -->
+        <button class="btn-open disabled" id="btnOpen" onclick="pindahKePin()" disabled>
+            <span id="btnText">🔒 TUNGGU SAMPAI WAKTUNYA</span>
+        </button>
+    </div>
+
+    <!-- ================= HALAMAN PIN PASSCODE ================= -->
+    <div class="pin-card hidden" id="pagePin">
+        <div class="pin-header">
+            <span class="flower-icon">❤️</span>
+            <h2 class="pin-title">Tebak</h2>
+            <p class="pin-subtitle">Enter the secret code</p>
+        </div>
+
+        <!-- Indikator 6 Titik PIN -->
+        <div class="pin-dots" id="pinDots">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+
+        <!-- Keypad Angka -->
+        <div class="keypad">
+            <button onclick="pressNum('1')">1</button>
+            <button onclick="pressNum('2')">2</button>
+            <button onclick="pressNum('3')">3</button>
+            <button onclick="pressNum('4')">4</button>
+            <button onclick="pressNum('5')">5</button>
+            <button onclick="pressNum('6')">6</button>
+            <button onclick="pressNum('7')">7</button>
+            <button onclick="pressNum('8')">8</button>
+            <button onclick="pressNum('9')">9</button>
+            <button class="btn-action" onclick="deleteNum()">✕</button>
+            <button onclick="pressNum('0')">0</button>
+            <button class="btn-action" onclick="submitPin()">↵</button>
+        </div>
+
+        <p class="pin-hint">Hint:  💕</p>
+    </div>
+
+    <!-- ================= HALAMAN 2: KADO & POLAROID ================= -->
+    <div class="gift-page hidden" id="pageGift">
+        
+        <!-- BAGIAN KADO AWAL -->
+        <div class="gift-section" id="giftSection">
+            <h2 class="gift-title">A Love Letter For You ✨</h2>
+            <p class="gift-subtitle">Ketuk kadonya untuk membuka pesan spesial 💖</p>
+
+            <div class="gift-box-wrapper" onclick="openGift()">
+                <div class="gift-box" id="giftBox">
+                    <div class="gift-lid">
+                        <div class="ribbon-bow">
+                            <div class="bow-left"></div>
+                            <div class="bow-right"></div>
+                            <div class="bow-center"></div>
+                        </div>
+                        <div class="lid-ribbon-v"></div>
+                    </div>
+                    <div class="gift-body">
+                        <div class="body-ribbon-v"></div>
+                        <div class="body-ribbon-h"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BAGIAN SURAT & POLAROID BERSEBARAN -->
+        <div class="content-section hidden" id="contentSection">
+            
+            <div class="polaroid p-1"><img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=300&q=80" alt="1"></div>
+            <div class="polaroid p-2"><img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=300&q=80" alt="2"></div>
+            <div class="polaroid p-3"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="3"></div>
+            <div class="polaroid p-4"><img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=300&q=80" alt="4"></div>
+
+            <div class="letter-card">
+                <p class="sub-letter">A LOVE LETTER FOR YOU</p>
+                <h1 class="hb-title">Your Special Day</h1>
+                <p class="created-text">Created with love, just for you</p>
+
+                <!-- Tombol Lanjut -->
+                <button class="btn-next" onclick="pindahKePesanFinal()">Lanjut 💖</button>
+            </div>
+
+        </div>
+
+        <!-- BAGIAN 3: SURAT BESAR DENGAN TEKS MENYUSUN SENDIRI -->
+        <div class="final-section hidden" id="finalSection">
+            
+            <h1 class="hb-title-final">Happy Birthday ✨</h1>
+
+            <div class="large-letter-card">
+                <div class="letter-header">
+                    <span class="heart-icon">💖</span>
+                    <span class="letter-tag">A Special Note For You</span>
+                </div>
+                
+                <div class="typing-text" id="typingText"></div>
+            </div>
+
+            <!-- Tombol Lanjut -->
+            <button class="btn-next-page" onclick="pindahKeMemoriFoto()">Lanjut 💖</button>
+        </div>
+
+        <!-- ================= BAGIAN 4: MEMORI 10 FOTO ================= -->
+        <div class="memory-section hidden" id="memorySection">
+            <h1 class="hb-title-final">Our Memories 📸</h1>
+            <p class="gift-subtitle">Setiap detik bersamamu adalah momen berharga 💕</p>
+
+            <!-- Container 10 Foto Polaroid -->
+            <div class="photo-grid">
+                <div class="polaroid-item">
+                    <img src="https://unsplash.com/photos/ZGcaNtMy0d0" alt="Memory 1">
+                    <span>Moment 01 💖</span>
+                </div>
+                <div class="polaroid-item">
+                    <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=400&q=80" alt="Memory 2">
+                    <span>Moment 02 ✨</span>
+                </div>
+                <div class="polaroid-item">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Memory 3">
+                    <span>Moment 03 🌸</span>
+                </div>
+                <div class="polaroid-item">
+                    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80" alt="Memory 4">
+                    <span>Moment 04 🌷</span>
+                </div>
+                <div class="polaroid-item">
+                    <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=400&q=80" alt="Memory 5">
+                    <span>Moment 05 💕</span>
+                </div>
+                <div class="polaroid-item">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80" alt="Memory 6">
+                    <span>Moment 06 ⭐</span>
+                </div>
+                <div class="polaroid-item">
+                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" alt="Memory 7">
+                    <span>Moment 07 ☀️</span>
+                </div>
+                <div class="polaroid-item">
+                    <img src="https://imgur.com/a/VCGXzPj">
+                    <span>Moment 08 💗</span>
+                </div>
+                <div class="polaroid-item">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" alt="Memory 9">
+                    <span>Moment 09 🌺</span>
+                </div>
+                <div class="polaroid-item">
+                    <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=400&q=80" alt="Memory 10">
+                    <span>Forever & Always ♾️</span>
+                </div>
+            </div>
+
+            <button class="btn-back-home" onclick="ulangDariAwal()">Ulang dari Awal 🔄</button>
+        </div>
+
+    </div>
+
+    <!-- Library Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
